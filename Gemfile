@@ -62,3 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'kaminari'
+gem 'devise'

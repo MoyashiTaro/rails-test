@@ -4,15 +4,18 @@ class TweetsController < ApplicationController
     end
 
     def new
-        
+        unless user_signed_in?
+            redirect_to action: :index
+        end
     end
 
     def create
         
         Tweet.create(
-            name:params[:name],
             image:params[:image],
             text:params[:text],
+            user_id:current_user.id
+            
 
         )
         
