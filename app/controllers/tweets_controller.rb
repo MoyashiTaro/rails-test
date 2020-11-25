@@ -14,13 +14,26 @@ class TweetsController < ApplicationController
         Tweet.create(
             image:params[:image],
             text:params[:text],
-            user_id:current_user.id
-            
+            user_id:current_user.id           
+        )  
+    end
 
-        )
-        
+    def destroy
+        deletetweet=Tweet.find(params[:id])
+        if current_user.id == deletetweet.user_id
+            deletetweet.destroy
+        end
+    end
 
-        
+    def edit
+        @tweet=Tweet.find(params[:id])
+    end
+
+    def update
+        edittweet=Tweet.find(params[:id])
+        if current_user.id == edittweet.user_id
+            edittweet.update(image:params[:image],text:params[:text])
+        end
     end
 
 end
